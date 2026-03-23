@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Template A 컬러 테마 */
+  --color-primary-purple: #6a5acd;
+  --color-primary-blue: #4169e1;
+  --color-light-bg: #e8e8ff;
+  --color-dark-navy: #1c2b47;
+  /* 부드러운 페이지 그라데이션 */
+  --gradient-page: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f8f8ff 8%,
+    #f0f0ff 18%,
+    #e8e8ff 30%,
+    #f0f0ff 42%,
+    #e8e8ff 55%,
+    #f0f0ff 68%,
+    #e8e8ff 80%,
+    #f5f5ff 92%,
+    #ffffff 100%
+  );
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Shader Gradient 스타일 - 움직이는 빛 애니메이션 */
+@keyframes shader-light-move {
+  0%, 100% {
+    transform: translate(-20%, -20%) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(60%, 10%) scale(1.1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(30%, 50%) scale(0.95);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate(-10%, 30%) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes shader-light-secondary {
+  0%, 100% {
+    transform: translate(40%, 20%) scale(1);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(-20%, 40%) scale(1.15);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(20%, -10%) scale(0.9);
+    opacity: 0.55;
+  }
+}
+
+/* FloatingContactBar: 버튼 스택을 살짝 위아래로 보빙 */
+@keyframes floating-contact-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
